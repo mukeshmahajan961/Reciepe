@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/* Ensure the main content fills the remaining space */
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+/* Adjust padding for smaller screens */
+@media (max-width: 768px) {
+  .p-4 {
+    padding: 1rem !important;
+  }
+}

@@ -1,0 +1,25 @@
+<!-- <app-header class="main-content flex-grow-1 p-4" [ngClass]="{ 'collapsed-content': isSidebarCollapsed }"></app-header>
+<div class="main-layout d-flex">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content flex-grow-1 p-4" [ngClass]="{ 'collapsed-content': isSidebarCollapsed }">
+    <h1>Welcome to Admin Panel</h1>
+    <p>This is your dashboard content area.</p>
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+<div class="d-flex">
+  <!-- Sidebar -->
+  <app-sidebar (isCollapsedChange)="autoCollapse($event)" [isCollapsed]="isCollapsed"></app-sidebar>
+
+  <!-- Main area -->
+  <div class="main-wrapper flex-grow-1">
+    <!-- Header inside main-wrapper -->
+    
+    <!-- Main Content -->
+    <div class="main-content px-2">
+      <app-header ></app-header>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
