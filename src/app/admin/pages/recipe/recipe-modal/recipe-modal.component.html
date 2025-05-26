@@ -1,0 +1,60 @@
+<!-- Modal Start -->
+<div class="modal fade show" tabindex="-1"
+     [class.show]="isOpen"
+     [style.display]="isOpen ? 'block' : 'none'"
+     aria-modal="true" role="dialog">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Add Recipe</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+
+      <div class="modal-body">
+        <form (ngSubmit)="onSave()" #recipeForm="ngForm">
+
+          <!-- Title -->
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" [(ngModel)]="newRecipe.title" name="title" required />
+          </div>
+
+          <!-- Description -->
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" [(ngModel)]="newRecipe.description" name="description" required></textarea>
+          </div>
+
+          <!-- State ID -->
+          <div class="mb-3">
+            <label class="form-label">State ID</label>
+            <input type="text" class="form-control" [(ngModel)]="newRecipe.stateId" name="stateId" />
+          </div>
+
+          <!-- Image -->
+          <div class="mb-3">
+            <label class="form-label">Image URL</label>
+            <input type="text" class="form-control" [(ngModel)]="newRecipe.image" name="image" />
+          </div>
+
+          <!-- Is Favourite -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="newRecipe.isFavourite" name="isFavourite" id="isFavourite">
+            <label class="form-check-label" for="isFavourite">Mark as Favourite</label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary" [disabled]="!recipeForm.form.valid">Save</button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal Backdrop -->
+<div class="modal-backdrop fade show" *ngIf="isOpen"></div>

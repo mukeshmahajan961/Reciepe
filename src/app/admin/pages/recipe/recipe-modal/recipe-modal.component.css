@@ -1,0 +1,43 @@
+/* Modal backdrop */
+:host ::ng-deep .modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+/* Show/hide modal */
+:host ::ng-deep .modal.fade.show {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+:host ::ng-deep .modal.fade {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Modal content */
+.modal-content {
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Modal header */
+.modal-header {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.75rem;
+}
+
+/* Close button */
+.btn-close:hover {
+  filter: brightness(0.8);
+  cursor: pointer;
+}
+
+/* Responsive inputs */
+input, textarea {
+  resize: vertical;
+}

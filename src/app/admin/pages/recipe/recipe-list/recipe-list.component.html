@@ -1,1 +1,40 @@
-<p>recipe-list works!</p>
+<h2 class="table-title">🍽️ Recipe List</h2>
+
+  <button class="btn btn-success mb-3" (click)="openAddModal()">Add Recipe</button>
+
+
+<div class="table-container">
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>State</th>
+        <th>Favourite</th>
+        <th>Reviews</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recipe of recipes">
+        <td><img [src]="recipe.image" alt="img" width="80" height="50" /></td>
+        <td>{{ recipe.title }}</td>
+        <td>{{ recipe.description }}</td>
+        <td>{{ recipe.stateId }}</td>
+        <td>
+          <span [class.fav]="recipe.isFavourite" [class.not-fav]="!recipe.isFavourite">
+            {{ recipe.isFavourite ? 'Yes' : 'No' }}
+          </span>
+        </td>
+        <td>{{ recipe.reviews.length }}</td>
+        <td>
+          <button class="btn edit" (click)="editRecipe(recipe)">Edit</button>
+          <button class="btn delete" (click)="deleteRecipe(recipe)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <app-recipe-modal (saveRecord)="addRecipe($event)"></app-recipe-modal>
